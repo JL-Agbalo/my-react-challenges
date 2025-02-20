@@ -17,15 +17,17 @@ const challenges = [
   },
   {
     id: 3,
-    title: "Challenge 3",
-    description: "Description for Challenge 3",
+    title: "Form Input with useState",
+    description:
+      "Create a form with an input field that updates its value using the useState hook.",
     difficulty: "easy",
     category: "useState",
   },
   {
     id: 4,
-    title: "Challenge 4",
-    description: "Description for Challenge 4",
+    title: "Toggle Background Color with useState",
+    description:
+      "Create a component that toggles the background color between two colors using the useState hook.",
     difficulty: "easy",
     category: "useState",
   },

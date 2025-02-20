@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
 import ChallengeCard from "./components/ChallengeCard";
+import challenges from "./data/challenges";
 import Challenge1 from "./components/Challenge/Challenge1";
 import Challenge2 from "./components/Challenge/Challenge2";
-import challenges from "./data/challenges";
+import Challenge3 from "./components/Challenge/Challenge3";
+import Challenge4 from "./components/Challenge/Challenge4";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           >
             {challenge.id === 1 && <Challenge1 />}
             {challenge.id === 2 && <Challenge2 />}
+            {challenge.id === 3 && <Challenge3 />}
+            {challenge.id === 4 && <Challenge4 />}
           </ChallengeCard>
         ))}
       </div>
