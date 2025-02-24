@@ -12,10 +12,9 @@ export default function OptimizedMovieApp() {
     for (let i = 0; i < 1000000000; i++) {}
     return (rating * reviews) / 10;
   };
-
-  const handleLike = () => {
-    console.log("Liked movie: ", movies[0].title);
-  };
+  const handleLike = React.useCallback((movie) => {
+    console.log("Liked movie: ", movie.title);
+  }, []);
 
   const movieScore = useMemo(
     () => calculateMovieScore(movies[0].rating, movies[0].reviews),
@@ -41,7 +40,7 @@ export default function OptimizedMovieApp() {
             key={movie.id}
             movie={movie}
             movieScore={movieScore}
-            onLike={() => handleLike(movie)}
+            onLike={handleLike}
           />
         ))}
       </div>
@@ -58,7 +57,7 @@ const Movie = React.memo(({ movie, onLike, movieScore }) => {
       <p className="mb-2">Reviews: {movie.reviews}</p>
       <p className="mb-2">Score: {movieScore}</p>
       <button
-        onClick={onLike}
+        onClick={() => onLike(movie)}
         className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
       >
         Like
@@ -66,3 +65,10 @@ const Movie = React.memo(({ movie, onLike, movieScore }) => {
     </div>
   );
 });
+
+// useMemo is used to memoize the result of calculateMovieScore to avoid recalculating it on every render
+// useCallback is used to memoize the handleLike function to avoid recreating it on every render
+
+// Use useCallback when the function is used in a memoized value or component to prevent unnecessary re-renders
+
+// https://www.youtube.com/watch?v=IridjOnyDow&list=PLP2PxLLwJa_sRqF3vutbeRYwBk0jfuYGDYGD
