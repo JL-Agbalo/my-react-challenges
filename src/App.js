@@ -9,12 +9,14 @@ import Challenge4 from "./components/Challenge/Challenge4";
 import UnoptimizedMovieApp from "./components/ReactHooks/UnoptimizedMovieApp";
 import OptimizedMovieApp from "./components/ReactHooks/OptimizedMovieApp";
 import { Fruits } from "./components/ReactHooks/Fruits";
+import { Todos } from "./components/ReactHooks/Todos";
+import { SampleComponent } from "./components/ButtonsWithoutRef";
 function App() {
   return (
     <div>
       {/* <UnoptimizedMovieApp /> */}
       {/* <OptimizedMovieApp /> */}
-      <Fruits />
+      <SampleComponent />
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">

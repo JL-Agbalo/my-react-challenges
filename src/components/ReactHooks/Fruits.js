@@ -1,44 +1,59 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // Import React and useState hook
 
 import {
   FruitsContextProvider,
   useFruitsContext,
-} from "../../contexts/FruitsContextProvider";
+} from "../../contexts/FruitsContextProvider"; // Import context provider and hook
 
 export function Fruits() {
   return (
     <FruitsContextProvider>
-      <FruitList />
+      {" "}
+      {/* Wrap components with context provider */}
+      <FruitList /> {/* Render FruitList component */}
+      <NewFruitList /> {/* Render NewFruitList component */}
     </FruitsContextProvider>
   );
 }
 
 function FruitList() {
-  const { fruits, addFruit } = useFruitsContext();
-  const [selectedFruit, setSelectedFruit] = useState("apple");
-  const fruitOptions = ["apple", "banana", "orange", "grape"];
+  const { fruits, addFruit } = useFruitsContext(); // Use context to get fruits and addFruit function
+  const [selectedFruit, setSelectedFruit] = useState("apple"); // State for selected fruit
+  const fruitOptions = ["apple", "banana", "orange", "grape"]; // Available fruit options
 
   return (
-    <div className="p-4">
+    <div>
       <select
-        className="border border-gray-300 rounded p-2 mb-4"
-        value={selectedFruit}
-        onChange={(e) => setSelectedFruit(e.target.value)}
+        value={selectedFruit} // Bind selected fruit to state
+        onChange={(e) => setSelectedFruit(e.target.value)} // Update state on change
       >
         {fruitOptions.map((fruit) => (
           <option key={fruit} value={fruit}>
+            {" "}
+            {/* Render options */}
             {fruit}
           </option>
         ))}
       </select>
       <button
-        className="bg-blue-500 text-white p-2 rounded"
-        onClick={() => addFruit(selectedFruit)}
+        onClick={() => addFruit(selectedFruit)} // Add selected fruit on click
       >
         Add Fruit
       </button>
-      <div className="mt-2 text-gray-700">
-        Current fruits on the List:{fruits.join(", ")}
+      <div>
+        Current fruits on the List: {fruits.join(", ")} {/* Display fruits */}
+      </div>
+    </div>
+  );
+}
+
+function NewFruitList() {
+  const { fruits } = useFruitsContext(); // Use context to get fruits
+  return (
+    <div>
+      <div>
+        New FruitListComponents Fruit on the List: {fruits.join(", ")}{" "}
+        {/* Display fruits */}
       </div>
     </div>
   );
