@@ -11,12 +11,14 @@ import OptimizedMovieApp from "./components/ReactHooks/OptimizedMovieApp";
 import { Fruits } from "./components/ReactHooks/Fruits";
 import { Todos } from "./components/ReactHooks/Todos";
 import { SampleComponent } from "./components/ButtonsWithoutRef";
+import { CForm } from "./components/ReactHooks/CForm";
+import { UCForm } from "./components/ReactHooks/UCForm";
 function App() {
   return (
     <div>
       {/* <UnoptimizedMovieApp /> */}
       {/* <OptimizedMovieApp /> */}
-      <SampleComponent />
+      <UCForm />
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
