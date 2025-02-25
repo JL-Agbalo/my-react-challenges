@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "tailwindcss/tailwind.css";
 
 export function Todos() {
   const { todos, loading } = useFetchTodos();
