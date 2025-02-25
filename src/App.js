@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import ChallengeCard from "./components/ChallengeCard";
 import challenges from "./data/challenges";
@@ -13,12 +13,18 @@ import { Todos } from "./components/ReactHooks/Todos";
 import { SampleComponent } from "./components/ButtonsWithoutRef";
 import { CForm } from "./components/ReactHooks/CForm";
 import { UCForm } from "./components/ReactHooks/UCForm";
+
 function App() {
+  useEffect(() => {
+    console.log(`PORT=${process.env.REACT_APP_PORT}`);
+    console.log(`TEST=${process.env.REACT_APP_TEST}`);
+  }, []);
+
   return (
     <div>
       {/* <UnoptimizedMovieApp /> */}
       {/* <OptimizedMovieApp /> */}
-      <UCForm />
+      {/* <UCForm /> */}
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
