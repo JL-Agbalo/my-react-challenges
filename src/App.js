@@ -6,13 +6,15 @@ import Challenge1 from "./components/Challenge/Challenge1";
 import Challenge2 from "./components/Challenge/Challenge2";
 import Challenge3 from "./components/Challenge/Challenge3";
 import Challenge4 from "./components/Challenge/Challenge4";
-import UnoptimizedMovieApp from "./components/Hooks/UnoptimizedMovieApp";
-import OptimizedMovieApp from "./components/Hooks/OptimizedMovieApp";
+import UnoptimizedMovieApp from "./components/ReactHooks/UnoptimizedMovieApp";
+import OptimizedMovieApp from "./components/ReactHooks/OptimizedMovieApp";
+import { Fruits } from "./components/ReactHooks/Fruits";
 function App() {
   return (
     <div>
       {/* <UnoptimizedMovieApp /> */}
-      <OptimizedMovieApp />
+      {/* <OptimizedMovieApp /> */}
+      <Fruits />
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
