@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import ChallengeCard from "./components/ChallengeCard";
 import challenges from "./data/challenges";
@@ -13,6 +14,8 @@ import { Todos } from "./components/ReactHooks/Todos";
 import { SampleComponent } from "./components/ButtonsWithoutRef";
 import { CForm } from "./components/ReactHooks/CForm";
 import { UCForm } from "./components/ReactHooks/UCForm";
+import Home from "./components/ToDo/Home";
+import TodoList from "./components/ToDo/TodoList";
 
 function App() {
   useEffect(() => {
@@ -25,6 +28,12 @@ function App() {
       {/* <UnoptimizedMovieApp /> */}
       {/* <OptimizedMovieApp /> */}
       {/* <UCForm /> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/todolist" element={<TodoList />} />
+        </Routes>
+      </Router>
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
