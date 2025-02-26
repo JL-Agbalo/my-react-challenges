@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import TodoItems from "./TodoItems";
 
 function TodoList() {
   const [todos, setTodos] = useState(["Task 1", "Task 2", "Task 3", "Task 4"]);
-
   const [newTodo, setNewTodo] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   const handleInputChange = (event) => {
     setNewTodo(event.target.value);
@@ -14,6 +16,33 @@ function TodoList() {
       setTodos([...todos, newTodo]);
       setNewTodo("");
     }
+  };
+
+  const handleDeleteTask = (index) => {
+    const newTodos = todos.filter((_, todoIndex) => todoIndex !== index);
+    setTodos(newTodos);
+  };
+
+  const handleEditTask = (index) => {
+    setIsEditing(true);
+    setCurrentIndex(index);
+    setNewTodo(todos[index]);
+  };
+
+  const handleUpdateTask = (index) => {
+    const updatedTodos = todos.map((todo, todoIndex) =>
+      todoIndex === index ? newTodo : todo
+    );
+    setTodos(updatedTodos);
+    setIsEditing(false);
+    setNewTodo("");
+    setCurrentIndex(null);
+  };
+
+  const handleCancelTask = () => {
+    setIsEditing(false);
+    setNewTodo("");
+    setCurrentIndex(null);
   };
 
   return (
@@ -31,29 +60,27 @@ function TodoList() {
             className="w-full px-3 py-2 mb-2 rounded"
           />
           <button
-            onClick={handleAddTask}
+            onClick={
+              isEditing ? () => handleUpdateTask(currentIndex) : handleAddTask
+            }
             className="w-full bg-green-500 text-white px-3 py-2 rounded"
           >
-            Add Task
+            {isEditing ? "Update Task" : "Add Task"}
           </button>
         </div>
         {todos.length > 0 ? (
           <ul className="list-disc pl-5 mb-4 text-white">
             {todos.map((todo, index) => (
-              <li
+              <TodoItems
                 key={index}
-                className="mb-2 flex justify-between items-center"
-              >
-                {todo}
-                <div>
-                  <button className="ml-4 bg-blue-500 text-white px-2 py-1 rounded">
-                    Edit
-                  </button>
-                  <button className="ml-4 bg-red-500 text-white px-2 py-1 rounded">
-                    Delete
-                  </button>
-                </div>
-              </li>
+                index={index}
+                todo={todo}
+                isEditing={isEditing && currentIndex === index}
+                handleDeleteTask={handleDeleteTask}
+                handleOnclickEdit={handleEditTask}
+                handleUpdateTask={handleUpdateTask}
+                handleCancelTask={handleCancelTask}
+              />
             ))}
           </ul>
         ) : (
