@@ -16,6 +16,8 @@ import { CForm } from "./components/ReactHooks/CForm";
 import { UCForm } from "./components/ReactHooks/UCForm";
 import Home from "./components/ToDo/Home";
 import TodoList from "./components/ToDo/TodoList";
+import WDSuseRef from "./components/YtubeTutorials/UseRef/WDSuseRef";
+import GPTCountRef from "./components/YtubeTutorials/UseRef/GPTCountRef";
 
 function App() {
   useEffect(() => {
@@ -28,12 +30,13 @@ function App() {
       {/* <UnoptimizedMovieApp /> */}
       {/* <OptimizedMovieApp /> */}
       {/* <UCForm /> */}
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/todolist" element={<TodoList />} />
         </Routes>
-      </Router>
+      </Router> */}
+      <GPTCountRef />
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
