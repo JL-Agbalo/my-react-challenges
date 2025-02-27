@@ -3,9 +3,10 @@ import TodoItems from "./TodoItems";
 
 function TodoList() {
   const [todos, setTodos] = useState(["Task 1", "Task 2", "Task 3", "Task 4"]);
+
   const [newTodo, setNewTodo] = useState("");
+
   const [isEditing, setIsEditing] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(null);
 
   const handleInputChange = (event) => {
     setNewTodo(event.target.value);
@@ -23,27 +24,9 @@ function TodoList() {
     setTodos(newTodos);
   };
 
-  const handleEditTask = (index) => {
-    setIsEditing(true);
-    setCurrentIndex(index);
-    setNewTodo(todos[index]);
-  };
+  const handleEditTask = (index) => {};
 
-  const handleUpdateTask = (index) => {
-    const updatedTodos = todos.map((todo, todoIndex) =>
-      todoIndex === index ? newTodo : todo
-    );
-    setTodos(updatedTodos);
-    setIsEditing(false);
-    setNewTodo("");
-    setCurrentIndex(null);
-  };
-
-  const handleCancelTask = () => {
-    setIsEditing(false);
-    setNewTodo("");
-    setCurrentIndex(null);
-  };
+  const handleOnclickEdit = () => {};
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-900">
@@ -60,12 +43,10 @@ function TodoList() {
             className="w-full px-3 py-2 mb-2 rounded"
           />
           <button
-            onClick={
-              isEditing ? () => handleUpdateTask(currentIndex) : handleAddTask
-            }
+            onClick={handleAddTask}
             className="w-full bg-green-500 text-white px-3 py-2 rounded"
           >
-            {isEditing ? "Update Task" : "Add Task"}
+            Add Task
           </button>
         </div>
         {todos.length > 0 ? (
@@ -75,16 +56,23 @@ function TodoList() {
                 key={index}
                 index={index}
                 todo={todo}
-                isEditing={isEditing && currentIndex === index}
+                isEditing={isEditing}
                 handleDeleteTask={handleDeleteTask}
-                handleOnclickEdit={handleEditTask}
-                handleUpdateTask={handleUpdateTask}
-                handleCancelTask={handleCancelTask}
+                handleOnlickEdit={handleEditTask}
               />
             ))}
           </ul>
         ) : (
           <p className="text-center text-white">No records found</p>
+        )}
+        {isEditing && (
+          <input
+            type="text"
+            placeholder="Add Task Here"
+            value={newTodo}
+            onChange={handleEditTask}
+            className="w-full px-3 py-2 mb-2 rounded"
+          />
         )}
       </div>
     </div>

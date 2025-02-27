@@ -18,6 +18,7 @@ import Home from "./components/ToDo/Home";
 import TodoList from "./components/ToDo/TodoList";
 import WDSuseRef from "./components/YtubeTutorials/UseRef/WDSuseRef";
 import GPTCountRef from "./components/YtubeTutorials/UseRef/GPTCountRef";
+import ShoppingCart from "./components/YtubeTutorials/UseReducer/ShoppingCart";
 
 function App() {
   useEffect(() => {
@@ -27,16 +28,17 @@ function App() {
 
   return (
     <div>
-      {/* <UnoptimizedMovieApp /> */}
-      {/* <OptimizedMovieApp /> */}
-      {/* <UCForm /> */}
-      {/* <Router>
+      <ShoppingCart />
+      {/* <UnoptimizedMovieApp />
+      <OptimizedMovieApp />
+      <UCForm />
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/todolist" element={<TodoList />} />
         </Routes>
-      </Router> */}
-      <GPTCountRef />
+      </Router>
+      <GPTCountRef /> */}
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
