@@ -31,7 +31,29 @@ const challenges = [
     difficulty: "easy",
     category: "useState",
   },
+  {
+    id: 5,
+    title: "Progress Bar with useState",
+    description:
+      "Create a progress bar that updates its progress using the useState hook. Add buttons to increase and decrease the progress.",
+    difficulty: "easy",
+    category: "useState",
+  },
+  {
+    id: 6,
+    title: "Dynamic List with useState",
+    description:
+      "Create a dynamic list where users can add and remove items using the useState hook. Ensure the list updates in real-time.",
+    difficulty: "medium",
+    category: "useState",
+  },
 ];
+
+// https://reactchallenges.live/dashboard/hooks
+
+// React Challenges
+
+//  Some Challenges are prompted by the AI for my study
 
 export default challenges;
 

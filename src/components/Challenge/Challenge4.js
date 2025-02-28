@@ -5,14 +5,15 @@ import React, { useState } from "react";
 
 function Challenge4() {
   const [color, setColor] = useState("bg-blue-500");
-
+  const toggleColor = () => {
+    setColor(color === "bg-blue-500" ? "bg-red-500" : "bg-blue-500");
+  };
   return (
     <div className={`p-4 ${color}`}>
       <h2>Color: {color}</h2>
+      <button onClick={toggleColor}>Change Color</button>
     </div>
   );
 }
-
-// TODO CONTINUE and add more challnages
 
 export default Challenge4;
