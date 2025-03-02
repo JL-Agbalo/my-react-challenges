@@ -24,6 +24,8 @@ import ShoppingCart from "./components/YtubeTutorials/UseReducer/ShoppingCart";
 import ExpenseTracker from "./components/YtubeTutorials/ExpenseTracker/Components/index";
 import { Parent } from "./components/YtubeTutorials/PredroTech/Parent";
 import { UserContextProvider } from "./components/YtubeTutorials/PredroTech/UserContext";
+import MiniContext from "./components/YtubeTutorials/HiteshContext/components/MiniContext.js";
+import HitesContextLogin from "./components/YtubeTutorials/HiteshContext/index";
 function App() {
   useEffect(() => {
     console.log(`PORT=${process.env.REACT_APP_PORT}`);
@@ -44,7 +46,9 @@ function App() {
        </Router>
        <GPTCountRef /> */}
       {/* <ExpenseTracker /> */}
-      <Parent />
+      {/* <Parent /> */}
+      {/* <MiniContext /> */}
+      <HitesContextLogin />
       {/* <UserContextProvider /> */}
     </div>
 
