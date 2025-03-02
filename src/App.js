@@ -22,8 +22,8 @@ import WDSuseRef from "./components/YtubeTutorials/UseRef/WDSuseRef";
 import GPTCountRef from "./components/YtubeTutorials/UseRef/GPTCountRef";
 import ShoppingCart from "./components/YtubeTutorials/UseReducer/ShoppingCart";
 import ExpenseTracker from "./components/YtubeTutorials/ExpenseTracker/Components/index";
-import { Parent } from "./components/YtubeTutorials/PredroTech/index";
-import { UserContext } from "./components/YtubeTutorials/PredroTech/UserContext";
+import { Parent } from "./components/YtubeTutorials/PredroTech/Parent";
+import { UserContextProvider } from "./components/YtubeTutorials/PredroTech/UserContext";
 function App() {
   useEffect(() => {
     console.log(`PORT=${process.env.REACT_APP_PORT}`);
@@ -44,8 +44,8 @@ function App() {
        </Router>
        <GPTCountRef /> */}
       {/* <ExpenseTracker /> */}
-      {/* <Parent /> */}
-      <UserContext />
+      <Parent />
+      {/* <UserContextProvider /> */}
     </div>
 
     // <div className="App bg-gray-900 min-h-screen p-8">
