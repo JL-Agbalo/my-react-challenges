@@ -27,6 +27,7 @@ import { UserContextProvider } from "./components/YtubeTutorials/PredroTech/User
 import MiniContext from "./components/YtubeTutorials/HiteshContext/components/MiniContext.js";
 import HitesContextLogin from "./components/YtubeTutorials/HiteshContext/index";
 import CrashCourse from "./components/YtubeTutorials/CrashCourse/index";
+import FoodRecipe from "./components/YtubeTutorials/FreeCodeCamp/index";
 function App() {
   useEffect(() => {
     console.log(`PORT=${process.env.REACT_APP_PORT}`);
@@ -47,10 +48,12 @@ function App() {
        </Router>
        <GPTCountRef /> */}
       {/* <ExpenseTracker /> */}
+      <FoodRecipe />
       {/* <Parent /> */}
       {/* <MiniContext /> */}
       {/* <HitesContextLogin /> */}
-      <CrashCourse />
+      {/* <CrashCourse /> */}
+
       {/* <UserContextProvider /> */}
     </div>
 
