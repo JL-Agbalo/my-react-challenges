@@ -1,11 +1,12 @@
 import React from "react";
-import Product from "./Product";
-import Navbar from "./Navbar";
-import Checkout from "./Checkout";
+import Product from "./components/Product";
+import Navbar from "./components/Navbar";
+import Checkout from "./components/Checkout";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 function Index() {
   return (
-    <div>
+    <CartProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -13,7 +14,7 @@ function Index() {
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </Router>
-    </div>
+    </CartProvider>
   );
 }
 
