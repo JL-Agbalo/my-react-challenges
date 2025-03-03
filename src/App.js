@@ -26,6 +26,7 @@ import { Parent } from "./components/YtubeTutorials/PredroTech/Parent";
 import { UserContextProvider } from "./components/YtubeTutorials/PredroTech/UserContext";
 import MiniContext from "./components/YtubeTutorials/HiteshContext/components/MiniContext.js";
 import HitesContextLogin from "./components/YtubeTutorials/HiteshContext/index";
+import CrashCourse from "./components/YtubeTutorials/CrashCourse/index";
 function App() {
   useEffect(() => {
     console.log(`PORT=${process.env.REACT_APP_PORT}`);
@@ -48,7 +49,8 @@ function App() {
       {/* <ExpenseTracker /> */}
       {/* <Parent /> */}
       {/* <MiniContext /> */}
-      <HitesContextLogin />
+      {/* <HitesContextLogin /> */}
+      <CrashCourse />
       {/* <UserContextProvider /> */}
     </div>
 
