@@ -28,6 +28,7 @@ import MiniContext from "./components/YtubeTutorials/HiteshContext/components/Mi
 import HitesContextLogin from "./components/YtubeTutorials/HiteshContext/index";
 import CrashCourse from "./components/YtubeTutorials/CrashCourse/index";
 import FoodRecipe from "./components/YtubeTutorials/FreeCodeCamp/index";
+import ReduxCart from "./components/YtubeTutorials/ReduxShoppingCart/index";
 function App() {
   useEffect(() => {
     console.log(`PORT=${process.env.REACT_APP_PORT}`);
@@ -48,7 +49,8 @@ function App() {
        </Router>
        <GPTCountRef /> */}
       {/* <ExpenseTracker /> */}
-      <FoodRecipe />
+      {/* <FoodRecipe /> */}
+      <ReduxCart />
       {/* <Parent /> */}
       {/* <MiniContext /> */}
       {/* <HitesContextLogin /> */}
