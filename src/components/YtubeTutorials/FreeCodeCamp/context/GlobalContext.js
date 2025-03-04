@@ -6,9 +6,10 @@ export default function GlobalProvider({ children }) {
   const [searchParams, setSearchParams] = useState("");
   const [loading, setLoading] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
-
+  const [recipeDetailsData, setRecipeDetailsData] = useState(null);
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch(
         `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchParams}`
@@ -36,6 +37,8 @@ export default function GlobalProvider({ children }) {
         handleSubmit,
         loading,
         recipeList,
+        recipeDetailsData,
+        setRecipeDetailsData,
       }}
     >
       {children}
