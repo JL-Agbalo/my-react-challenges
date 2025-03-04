@@ -51,7 +51,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink
+            {/* <NavLink
               to={"/orders"}
               className={({ isActive }) =>
                 isActive
@@ -60,7 +60,7 @@ function Navbar() {
               }
             >
               Orders
-            </NavLink>
+            </NavLink> */}
           </li>
         </ul>
       </div>
