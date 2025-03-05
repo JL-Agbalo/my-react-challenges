@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaEyeDropper } from "react-icons/fa6";
 import { ClipLoader } from "react-spinners";
-import ProductTile from "../component/header/product-tile/ProductTile";
+import ProductTile from "../component/product-tile/ProductTile";
 function Feed() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -22,6 +22,7 @@ function Feed() {
 
   return (
     <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Shopping List</h1>
       {loading ? (
         <div className="flex justify-center items-center h-64">
           <ClipLoader size={100} color={"#123abc"} loading={loading} />{" "}

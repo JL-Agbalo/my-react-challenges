@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import CartTile from "../component/cart-tile/CartTile";
 
 function Cart() {
   const [totalCart, setTotalCart] = useState(0);
@@ -36,29 +37,21 @@ function Cart() {
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {cart.map((item) => (
-              <div
-                key={item.id}
-                className="border rounded-lg shadow-md p-4 flex flex-col"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-48 object-contain mb-4 rounded"
-                />
-                <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
-                <p className="text-gray-700 mb-4 line-clamp-3">
-                  {item.description}
-                </p>
-                <span className="text-xl font-bold">
-                  ${item.price.toFixed(2)}
-                </span>
-              </div>
+              <CartTile key={item.id} item={item} />
             ))}
           </div>
-          <div className="mt-4">
-            <h2 className="text-xl font-bold">
-              Total: ${totalCart.toFixed(2)}
-            </h2>
+          <div className="mt-8 p-4 bg-gray-100 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold mb-2">Cart Summary</h2>
+            <div className="flex justify-between items-center">
+              <span className="text-lg">Total Items:</span>
+              <span className="text-lg font-semibold">{cart.length}</span>
+            </div>
+            <div className="flex justify-between items-center mt-2">
+              <span className="text-lg">Total Price:</span>
+              <span className="text-lg font-semibold">
+                ${totalCart.toFixed(2)}
+              </span>
+            </div>
           </div>
         </div>
       )}

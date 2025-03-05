@@ -1,7 +1,7 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../../../store/slices/cart-slice";
+import { addToCart, removeFromCart } from "../../store/slices/cart-slice";
 
 function ProductTile({ product }) {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ function ProductTile({ product }) {
         >
           <FaShoppingCart className="mr-2" />{" "}
           {cart.some((item) => item.id === product.id)
-            ? "Remove to Cart"
+            ? "Remove from Cart"
             : "Add to Cart"}
         </button>
       </div>
