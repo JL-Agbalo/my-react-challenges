@@ -1,4 +1,5 @@
 import React from "react";
+import PieChart from "../chart/PieChart";
 
 function Summary() {
   return (
@@ -19,8 +20,16 @@ function Summary() {
             <span className="text-2xl">$50</span>
           </div>
         </div>
-        <div className="flex items-center justify-center">
-          <div className="text-center text-gray-600">Chart will be here</div>
+        <div
+          className="flex items-center justify-center"
+          style={{ height: "400px" }}
+        >
+          <div
+            className="text-center text-gray-600"
+            style={{ width: "100%", height: "100%", minHeight: "500px" }}
+          >
+            <PieChart expense={500} income={800} />
+          </div>
         </div>
       </div>
     </div>
