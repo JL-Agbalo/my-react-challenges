@@ -52,23 +52,23 @@ function TransactionForm({ onClose }) {
             <input
               type="radio"
               name="transactionType"
-              value="expense"
-              className="mr-2"
-              onChange={handleFormChange}
-              checked={formData.transactionType === "expense"}
-            />
-            Expense
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="transactionType"
               value="income"
               className="mr-2"
               onChange={handleFormChange}
               checked={formData.transactionType === "income"}
             />
             Income
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="transactionType"
+              value="expense"
+              className="mr-2"
+              onChange={handleFormChange}
+              checked={formData.transactionType === "expense"}
+            />
+            Expense
           </label>
         </div>
         <div className="flex justify-end">
