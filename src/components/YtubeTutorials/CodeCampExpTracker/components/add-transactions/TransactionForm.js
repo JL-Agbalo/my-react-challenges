@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
 function TransactionForm({ onClose }) {
+  const { formData, setFormData, values, setValues, handleFormSubmit } =
+    useContext(GlobalContext);
+
+  function handleFormChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    handleFormSubmit(formData);
+    onClose();
+  }
+
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-4">
@@ -9,21 +26,25 @@ function TransactionForm({ onClose }) {
           &times;
         </button>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block mb-2">Enter Description:</label>
           <input
             type="text"
             placeholder="Enter Transaction Description"
             className="w-full p-2 border rounded"
+            onChange={handleFormChange}
+            name="description"
           />
         </div>
         <div className="mb-4">
           <label className="block mb-2">Amount:</label>
           <input
-            type="text"
+            type="number"
             placeholder="Enter Transaction Amount"
             className="w-full p-2 border rounded"
+            onChange={handleFormChange}
+            name="amount"
           />
         </div>
         <div className="mb-4">
@@ -33,6 +54,8 @@ function TransactionForm({ onClose }) {
               name="transactionType"
               value="expense"
               className="mr-2"
+              onChange={handleFormChange}
+              checked={formData.transactionType === "expense"}
             />
             Expense
           </label>
@@ -42,6 +65,8 @@ function TransactionForm({ onClose }) {
               name="transactionType"
               value="income"
               className="mr-2"
+              onChange={handleFormChange}
+              checked={formData.transactionType === "income"}
             />
             Income
           </label>
